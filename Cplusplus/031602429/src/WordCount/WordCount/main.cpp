@@ -14,7 +14,7 @@ int cnt[3] = { 0 };
 
 void display_map(map<string, int> &wmap);
 /**
-*function£ºÍ³¼ÆÎÄ±¾ÖĞÃ¿¸öµ¥´Ê³öÏÖµÄ´ÎÊı
+*functionï¼šç»Ÿè®¡æ–‡æœ¬ä¸­æ¯ä¸ªå•è¯å‡ºç°çš„æ¬¡æ•°
 */
 int main(int argc, char* argv[]) 
 	{
@@ -26,20 +26,20 @@ int main(int argc, char* argv[])
 	
 	string mStrTemp;
 	map<string, int> mCountMap;
-	//°´ĞĞ¶ÁÈëÎÄ¼ş£¬ÓÃÕıÔòÕÒ³öµ¥´Ê£¬½øĞĞÍ³¼Æ
-	regex regWordPattern("[a-zA-Z]+");//µ¥´ÊµÄÕıÔòÊ½£º1£©\w+:°üº¬Êı×Ö 2)[a-zA-Z]:Ö»º¬×ÖÄ¸
+	//æŒ‰è¡Œè¯»å…¥æ–‡ä»¶ï¼Œç”¨æ­£åˆ™æ‰¾å‡ºå•è¯ï¼Œè¿›è¡Œç»Ÿè®¡
+	regex regWordPattern("[a-zA-Z]+");//å•è¯çš„æ­£åˆ™å¼ï¼š1ï¼‰\w+:åŒ…å«æ•°å­— 2)[a-zA-Z]:åªå«å­—æ¯
 	while (getline(ifs, mStrTemp))
-	{//ÖğĞĞ¶ÁÈë
+	{//é€è¡Œè¯»å…¥
 		const std::sregex_token_iterator end;
 		for (sregex_token_iterator wordIter(mStrTemp.begin(), mStrTemp.end(), regWordPattern); wordIter != end; wordIter++)
-		{//ÔÚÒ»ĞĞÎÄ±¾ÖĞÖğ¸öÕÒ³öµ¥´Ê
-			//cout<<*wordIter<<endl;//Ã¿¸öµ¥´Ê
-			mCountMap[*wordIter]++;//µ¥´Ê¼ÆÊı
+		{//åœ¨ä¸€è¡Œæ–‡æœ¬ä¸­é€ä¸ªæ‰¾å‡ºå•è¯
+			//cout<<*wordIter<<endl;//æ¯ä¸ªå•è¯
+			mCountMap[*wordIter]++;//å•è¯è®¡æ•°
 		}
 	}
 
 
-	//cout << "please input your filename:" << endl; //ÊäÈëÒªÍ³¼ÆµÄÎÄ±¾µÄ¾ø¶ÔÂ·¾¶
+	//cout << "please input your filename:" << endl; //è¾“å…¥è¦ç»Ÿè®¡çš„æ–‡æœ¬çš„ç»å¯¹è·¯å¾„
 	//cin.getline(filename, 256);
 	fstream outfile(argv[1], ios::in);
 	count(outfile, cnt);
@@ -67,7 +67,7 @@ struct ww
 {
 	char word[20];
 	int number;
-}w[1000];
+}w[100000];
 void display_map(map<string, int> &wmap)
 {
 
